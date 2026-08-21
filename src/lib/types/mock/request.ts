@@ -18,3 +18,12 @@ export interface MockEditStatusRequest {
   id: number;
   status: RequestStatus;
 }
+
+export interface MockItemRequestJSON {
+  id: number;
+  requestorName: string;
+  itemRequested: string;
+  requestCreatedDate: string;
+  lastEditedDate: string | null;
+  status: RequestStatus;
+}

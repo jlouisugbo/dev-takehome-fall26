@@ -41,3 +41,108 @@ label {
   font-size: 16px;
   line-height: 24px;
 }
+
+@keyframes row-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-row-in {
+  animation: row-in 0.35s ease both;
+}
+
+@keyframes die-tumble {
+  0% {
+    transform: rotateX(12deg) rotateY(-18deg) rotateZ(0deg) translateY(0);
+  }
+  20% {
+    transform: rotateX(210deg) rotateY(140deg) rotateZ(80deg) translateY(-28px);
+  }
+  45% {
+    transform: rotateX(-160deg) rotateY(320deg) rotateZ(-50deg) translateY(-8px);
+  }
+  70% {
+    transform: rotateX(90deg) rotateY(-90deg) rotateZ(30deg) translateY(-18px);
+  }
+  100% {
+    transform: rotateX(12deg) rotateY(-18deg) rotateZ(0deg) translateY(0);
+  }
+}
+
+.animate-die-tumble {
+  animation: die-tumble 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes token-hit {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgb(0 112 255 / 0.45);
+  }
+  40% {
+    transform: scale(1.18);
+    box-shadow: 0 0 0 10px rgb(0 112 255 / 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgb(0 112 255 / 0);
+  }
+}
+
+.animate-token-hit {
+  animation: token-hit 0.55s ease-out;
+}
+
+@keyframes fx-bolt {
+  from {
+    stroke-dashoffset: 120;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.animate-fx-bolt {
+  stroke-dasharray: 8 6;
+  animation: fx-bolt 0.35s ease-out both;
+}
+
+@keyframes fx-burst {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.animate-fx-burst {
+  animation: fx-burst 0.5s ease-out both;
+}
+
+@keyframes fx-miss {
+  from {
+    stroke-dashoffset: 80;
+    opacity: 0.2;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 0.7;
+  }
+}
+.animate-fx-miss {
+  stroke-dasharray: 3 5;
+  animation: fx-miss 0.45s ease-out both;
+}

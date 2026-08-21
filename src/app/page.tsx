@@ -17,6 +17,11 @@ export default function Home() {
               <h3>Admin Portal</h3>
             </Button>
           </Link>
+          <Link href={APP_PATHS.REQUEST}>
+            <Button variant="inverted">
+              <h3>Request an item</h3>
+            </Button>
+          </Link>
           <Link href={APP_PATHS.COOL}>
             <Button variant="inverted">
               <h3>Something cool!</h3>

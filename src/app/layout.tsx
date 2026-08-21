@@ -1,5 +1,6 @@
 import { NP } from "@/lib/constants/strings";
-import "./globals.css";
+import Providers from "@/app/providers"
+import '@/app/globals.css';
 
 export const metadata = {
   title: NP.NAME,
@@ -13,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

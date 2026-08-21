@@ -4,6 +4,7 @@ export const APP_PATHS = {
   ADMIN_PORTAL: "/admin",
   MOCK_API_PREFIX: "/api/mock",
   REAL_API_PREFIX: "/api/",
+  REQUEST: "/request",
 };
 
 export const API_PATHS = {
