@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Dropdown, { DropdownOption } from "@/components/atoms/Dropdown";
 import {
   Table,
@@ -80,7 +81,15 @@ export default function ItemRequestsTable({
   onStatusChange,
 }: ItemRequestsTableProps) {
   const allSelected =
-    requests.length > 0 && selectedIds.size === requests.length;
+    requests.length > 0 && requests.every((row) => selectedIds.has(row.id));
+  const someSelected = selectedIds.size > 0 && !allSelected;
+  const selectAllRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (selectAllRef.current) {
+      selectAllRef.current.indeterminate = someSelected;
+    }
+  }, [someSelected]);
 
   return (
     <>
@@ -89,6 +98,7 @@ export default function ItemRequestsTable({
           <tr>
             <TableHeader>
               <input
+                ref={selectAllRef}
                 type="checkbox"
                 checked={allSelected}
                 onChange={onToggleAll}

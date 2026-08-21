@@ -121,11 +121,17 @@ export default function ItemRequestsPage() {
   }
 
   function toggleAllOnPage() {
-    setSelectedIds((current) =>
-      current.size === requests.length
+    setSelectedIds((current) => {
+      const allOnPageSelected =
+        requests.length > 0 && requests.every((row) => current.has(row.id));
+      return allOnPageSelected
         ? new Set()
-        : new Set(requests.map((row) => row.id))
-    );
+        : new Set(requests.map((row) => row.id));
+    });
+  }
+
+  function clearSelection() {
+    setSelectedIds(new Set());
   }
 
   const totalRecords = estimateTotalRecords(
@@ -218,6 +224,14 @@ export default function ItemRequestsPage() {
               <span className="mr-auto text-xs font-medium uppercase tracking-wide text-gray-text">
                 {selectedIds.size} selected
               </span>
+              <button
+                type="button"
+                disabled={isBatchPending}
+                onClick={clearSelection}
+                className="rounded-md px-3 py-1.5 text-sm text-gray-text hover:bg-gray-fill disabled:opacity-50"
+              >
+                Clear
+              </button>
               <Dropdown
                 value={batchStatus}
                 options={STATUS_OPTIONS}
