@@ -32,6 +32,12 @@
 # Notes
 
 <!-- Notes go here -->
-Admin at /admin talks to Mongo via /api/request (ObjectId strings). /cool is a small Daggerheart-style board. Paste .env.local in the application; Atlas allows 0.0.0.0/0. Did not commit secrets.
+Admin at /admin talks to Mongo via /api/request, not using the mock as we want to mimic real data here.
+
+I made /cool a small Daggerheart-style board based on my existing project that I'm proud of
+
+Paste .env.local in the application; Atlas allows 0.0.0.0/0. Did not commit secret
 
 I made an edit on the admin table because the header kept pushing the table up and down and that's a known design anti-pattern and so I changed that
+
+When I develop, I use TDD and React best practices to keep my development very focused so I installed vitest to help anchor what I wanted each component to do.
